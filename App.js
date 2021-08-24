@@ -82,11 +82,16 @@ export default function App() {
   const [nome, alteraNome] = useState('')
   const [filme, alteraFilme] = useState({"Title":"Batman","Year":"1989","Rated":"PG-13","Released":"23 Jun 1989","Runtime":"126 min","Genre":"Action, Adventure","Director":"Tim Burton","Writer":"Bob Kane, Sam Hamm, Warren Skaaren","Actors":"Michael Keaton, Jack Nicholson, Kim Basinger","Plot":"The Dark Knight of Gotham City begins his war on crime with his first major enemy being Jack Napier, a criminal who becomes the clownishly homicidal Joker.","Language":"English, French, Spanish","Country":"United States, United Kingdom","Awards":"Won 1 Oscar. 9 wins & 26 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.5/10"},{"Source":"Rotten Tomatoes","Value":"71%"},{"Source":"Metacritic","Value":"69/100"}],"Metascore":"69","imdbRating":"7.5","imdbVotes":"350,141","imdbID":"tt0096895","Type":"movie","DVD":"24 Jul 2014","BoxOffice":"$251,348,343","Production":"Warner Brothers, Guber-Peters Company, PolyGram Filmed Entertainment","Website":"N/A","Response":"True"})
 
+  const buscarFilme = async () => {
+    const requisicao = await fetch()
+    const resposta = await requisicao.json()
+    console.log(resposta);
+  }
   return (
     <Tela>
       <Cabeçalho>
         <Busca placeholder="Digite o nome do filme..." value= {nome} onChangeText= { (filme) => (alteraNome)}/>
-        <Botao activeOpacity={0.5}>
+        <Botao activeOpacity={0.5} onPress={buscarFilme}>
           <BuscaImagem source= {require('./assets/icons8-search-24.png')}/>
         </Botao>
       </Cabeçalho>
